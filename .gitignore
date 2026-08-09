@@ -1,0 +1,19 @@
+# Raw datasets
+data/raw/
+
+# Processed datasets
+data/processed/
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Environment
+.env
+.venv/
+
+# Tableau
+*.twb~
