@@ -83,3 +83,13 @@ GROUP BY order_category;
 -- 04. MONTHLY REVENUE & ORDER VOLUME TREND ANALYSIS (DELIVERED ORDERS)
 -- ============================================================
 
+SELECT
+	DATE_FORMAT(o.order_purchase_timestamp, '%Y-%m') as order_month,
+    COUNT(DISTINCT o.order_id) as total_orders,
+    ROUND(SUM(i.price), 2) as total_revenue
+FROM olist_orders_dataset o
+JOIN olist_order_items_dataset i
+	ON o.order_id = i.order_id
+WHERE o.order_status = 'delivered'
+GROUP BY order_month
+ORDER BY order_month;
